@@ -94,7 +94,7 @@ df_prediction_proba.rename(columns={0: 'A',
                                  3: 'D'})
 
 # Display predicted species
-st.subheader('Predicted Species')
+st.subheader('Customer is mostly likely belong to the segment')
 
 # First row with two columns
 row1_col1, row1_col2 = st.columns(2)
