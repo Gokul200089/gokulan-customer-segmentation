@@ -1,5 +1,7 @@
 import streamlit as st
+import pandas as pd
+from sklearn.ensemble import GradientBoostingClassifier
 
-st.title('🎈 App Name')
+st.title('Customer Segmentation App')
 
-st.write('Hello world!')
+st.info('This app segments customer by their characteristics')
