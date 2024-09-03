@@ -95,37 +95,61 @@ df_prediction_proba.rename(columns={0: 'A',
 
 # Display predicted species
 st.subheader('Predicted Species')
-st.dataframe(df_prediction_proba,
-             column_config={
-               'A': st.column_config.ProgressColumn(
-                 'A',
-                 format='%f',
-                 width='small',
-                 min_value=0,
-                 max_value=1
-               ),
-               'B': st.column_config.ProgressColumn(
-                 'B',
-                 format='%f',
-                 width='small',
-                 min_value=0,
-                 max_value=1
-               ),
-               'C': st.column_config.ProgressColumn(
-                 'C',
-                 format='%f',
-                 width='small',
-                 min_value=0,
-                 max_value=1
-               ),
-               'D': st.column_config.ProgressColumn(
-                 'D',
-                 format='%f',
-                 width='small',
-                 min_value=0,
-                 max_value=1
-               ),
-             }, hide_index=True)
+
+# First row with two columns
+row1_col1, row1_col2 = st.columns(2)
+
+# Second row with two columns
+row2_col1, row2_col2 = st.columns(2)
+
+# Display the data in each column
+with row1_col1:
+    st.dataframe(df_prediction_proba[['A']],
+                 column_config={
+                   'A': st.column_config.ProgressColumn(
+                     'A',
+                     format='%f',
+                     width='medium',
+                     min_value=0,
+                     max_value=1
+                   ),
+                 }, hide_index=True)
+
+with row1_col2:
+    st.dataframe(df_prediction_proba[['B']],
+                 column_config={
+                   'B': st.column_config.ProgressColumn(
+                     'B',
+                     format='%f',
+                     width='medium',
+                     min_value=0,
+                     max_value=1
+                   ),
+                 }, hide_index=True)
+
+with row2_col1:
+    st.dataframe(df_prediction_proba[['C']],
+                 column_config={
+                   'C': st.column_config.ProgressColumn(
+                     'C',
+                     format='%f',
+                     width='medium',
+                     min_value=0,
+                     max_value=1
+                   ),
+                 }, hide_index=True)
+
+with row2_col2:
+    st.dataframe(df_prediction_proba[['D']],
+                 column_config={
+                   'D': st.column_config.ProgressColumn(
+                     'D',
+                     format='%f',
+                     width='medium',
+                     min_value=0,
+                     max_value=1
+                   ),
+                 }, hide_index=True)
 
 
 customer_segment = np.array(['A', 'B', 'C', 'D'])
