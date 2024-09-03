@@ -151,6 +151,7 @@ with row2_col2:
                    ),
                  }, hide_index=True)
 
-st.info("The Customer belongs to segment")
+
 customer_segment = np.array(['A', 'B', 'C', 'D'])
-st.success(str(customer_segment[prediction][0]))
+st.markdown(f"**The Customer belongs to segment:** :green[{customer_segment[prediction][0]}]")
+
