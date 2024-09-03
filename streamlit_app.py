@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 
 st.title('Customer Segmentation App')
 
@@ -79,7 +79,7 @@ with st.expander('Data preparation'):
 
 # Model training and inference
 ## Train the ML model
-clf = RandomForestClassifier()
+clf = GradientBoostingClassifier()
 clf.fit(X, y)
 
 ## Apply model to make predictions
