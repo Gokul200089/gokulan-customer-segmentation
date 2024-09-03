@@ -1,5 +1,7 @@
 import streamlit as st
+import numpy as np
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
 st.title('Customer Segmentation App')
 
@@ -74,3 +76,57 @@ with st.expander('Data preparation'):
   input_row
   st.write('**Encoded y**')
   y
+
+# Model training and inference
+## Train the ML model
+clf = RandomForestClassifier()
+clf.fit(X, y)
+
+## Apply model to make predictions
+prediction = clf.predict(input_row)
+prediction_proba = clf.predict_proba(input_row)
+
+df_prediction_proba = pd.DataFrame(prediction_proba)
+df_prediction_proba.columns = ['A', 'B', 'C', 'D']
+df_prediction_proba.rename(columns={0: 'A',
+                                 1: 'B',
+                                 2: 'C',
+                                 3: 'D'})
+
+# Display predicted species
+st.subheader('Predicted Species')
+st.dataframe(df_prediction_proba,
+             column_config={
+               'A': st.column_config.ProgressColumn(
+                 'A',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+               'B': st.column_config.ProgressColumn(
+                 'B',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+               'C': st.column_config.ProgressColumn(
+                 'C',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+               'D': st.column_config.ProgressColumn(
+                 'D',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+             }, hide_index=True)
+
+
+customer_segment = np.array(['A', 'B', 'C', 'D'])
+st.success(str(customer_segment[prediction][0])).
