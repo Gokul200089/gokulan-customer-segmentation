@@ -129,4 +129,4 @@ st.dataframe(df_prediction_proba,
 
 
 customer_segment = np.array(['A', 'B', 'C', 'D'])
-st.success(str(customer_segment[prediction][0])).
+st.success(str(customer_segment[prediction][0]))
