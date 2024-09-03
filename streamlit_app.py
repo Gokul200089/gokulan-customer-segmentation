@@ -153,7 +153,6 @@ with row2_col2:
 
 
 customer_segment = np.array(['A', 'B', 'C', 'D'])
-st.info("The Customer belongs to segment:")
 st.success(str(customer_segment[prediction][0]))
 
 
