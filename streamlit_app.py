@@ -94,7 +94,7 @@ df_prediction_proba.rename(columns={0: 'A',
                                  3: 'D'})
 
 # Display predicted species
-st.subheader('Customer is mostly likely belong to the segment')
+st.subheader('Customer Segment Prediction')
 
 # First row with two columns
 row1_col1, row1_col2 = st.columns(2)
@@ -151,6 +151,6 @@ with row2_col2:
                    ),
                  }, hide_index=True)
 
-
+st.info("The Customer belongs to segment")
 customer_segment = np.array(['A', 'B', 'C', 'D'])
 st.success(str(customer_segment[prediction][0]))
