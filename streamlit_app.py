@@ -100,28 +100,28 @@ st.dataframe(df_prediction_proba,
                'A': st.column_config.ProgressColumn(
                  'A',
                  format='%f',
-                 width='medium',
+                 width='small',
                  min_value=0,
                  max_value=1
                ),
                'B': st.column_config.ProgressColumn(
                  'B',
                  format='%f',
-                 width='medium',
+                 width='small',
                  min_value=0,
                  max_value=1
                ),
                'C': st.column_config.ProgressColumn(
                  'C',
                  format='%f',
-                 width='medium',
+                 width='small',
                  min_value=0,
                  max_value=1
                ),
                'D': st.column_config.ProgressColumn(
                  'D',
                  format='%f',
-                 width='medium',
+                 width='small',
                  min_value=0,
                  max_value=1
                ),
